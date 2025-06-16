@@ -1,0 +1,142 @@
+
+<style>
+/* Basic Styling */
+.slide6r-container6 {
+  width: 100%;  /* Adjust as needed */
+  overflow: hidden; /* Important: hides content that overflows */
+  position: relative;
+}
+
+.slide6r-wrapper6 {
+  display: flex; /* Important: arranges elements horizontally */
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.slide6 {
+  flex: 0 0 auto; /*  Important: prevents slide6s from stretching, ensures equal width */
+  width: calc(100% / 5); /*  Adjust the number '5' based on how many items you want visible at once */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;  /* Include padding in width calculation */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+/* Optional: Style for Arrows (if you want manual control) */
+.slide6r-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  z-index: 10; /* Ensure they're on top */
+}
+
+.slide6r-arrow.left {
+  left: 10px;
+}
+
+.slide6r-arrow.right {
+  right: 10px;
+}
+</style>
+
+
+
+<div class="slide6r-container6">
+  <div class="slide6r-wrapper6">
+    <div class="slide6">Item 1</div>
+    <div class="slide6">Item 2</div>
+    <div class="slide6">Item 3</div>
+    <div class="slide6">Item 4</div>
+    <div class="slide6">Item 5</div>
+    <div class="slide6">Item 6</div>
+    <div class="slide6">Item 7</div>
+    <div class="slide6">Item 8</div>
+    <div class="slide6">Item 9</div>
+    <div class="slide6">Item 10</div>
+  </div>
+  <!-- Optional: Manual Navigation Arrows -->
+  <!-- <button class="slide6r-arrow left"><</button>
+       <button class="slide6r-arrow right">></button> -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const slide6rContainer = document.querySelector('.slide6r-container6');
+  const slide6rWrapper = document.querySelector('.slide6r-wrapper6');
+  const slide6s = document.querySelectorAll('.slide6');
+  const slide6Width = slide6s[0].offsetWidth; // Get the width of one slide6
+  const totalslide6s = slide6s.length;
+  let currentPosition = 0;
+  let intervalId; // Store the interval ID for pausing/resuming
+
+  // Function to slide6 to the next item
+  function slide6Next() {
+      currentPosition -= slide6Width; // Move to the left
+      if (currentPosition < -slide6Width * (totalslide6s - 1)) {
+          // Reset to the beginning if we've reached the end
+          currentPosition = 0;
+      }
+      slide6rWrapper.style.transform = `translateX(${currentPosition}px)`;
+  }
+
+  // Function to start the automatic sliding
+  function startAutoslide6() {
+      intervalId = setInterval(slide6Next, 2000); // Change slide6 every 2 seconds (adjust as needed)
+  }
+
+  // Function to stop the automatic sliding (for pause on hover if desired)
+  function stopAutoslide6() {
+      clearInterval(intervalId);
+  }
+
+  // Initialize the automatic sliding
+  startAutoslide6();
+
+  // Optional: Pause on hover and resume when mouse leaves
+  slide6rContainer.addEventListener('mouseenter', stopAutoslide6);
+  slide6rContainer.addEventListener('mouseleave', startAutoslide6);
+
+  // Optional: Manual Navigation (add these if you uncommented the arrow buttons)
+  /*
+  const leftArrow = document.querySelector('.slide6r-arrow.left');
+  const rightArrow = document.querySelector('.slide6r-arrow.right');
+
+  leftArrow.addEventListener('click', () => {
+     stopAutoslide6(); // Stop auto slide6 when using manual controls
+     currentPosition += slide6Width;
+     if (currentPosition > 0) {
+         currentPosition = -slide6Width * (totalslide6s - 1);
+     }
+     slide6rWrapper.style.transform = `translateX(${currentPosition}px)`;
+     startAutoslide6(); // Restart auto slide6 after manual navigation
+  });
+
+  rightArrow.addEventListener('click', () => {
+      stopAutoslide6();
+      currentPosition -= slide6Width;
+      if (currentPosition < -slide6Width * (totalslide6s - 1)) {
+          currentPosition = 0;
+      }
+      slide6rWrapper.style.transform = `translateX(${currentPosition}px)`;
+      startAutoslide6();
+  });
+  */
+
+</script>

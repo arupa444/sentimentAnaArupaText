@@ -1,0 +1,230 @@
+{% extends "universalLayout.html" %}
+{% block content %}
+    <div class="m-5 blogPage d-flex justify-content-evenly">
+        <div class="col1">
+            <div class="contact-info">
+                <h1>Start Your Fashion Brand Journey With Us</h1>
+                <p>Shoot us your message on <a href=“tel:+919337690179” class="text-decoration-none text-dark lh-sm">+91 9337690179</a>. We'll get back to you at the soonest, until then #staydripped #keepDriping</p>
+
+                <h2>Contact</h2>
+                <p><a href="mailto:info@lusabuy.com" class="text-decoration-none text-dark lh-sm"><i class="fas fa-envelope text-decoration-none text-dark"></i> info@lusabuy.com</a></p>
+                <p><a href="tel:+919861002612" class="text-decoration-none text-dark lh-sm"><i class="fas fa-phone text-decoration-none text-dark"></i> +91 9861002612</a> <a href=“tel:+919337690179” class="text-decoration-none text-dark lh-sm">+91 9337690179</a></p>
+                <p><i class="fas fa-map-marker-alt text-decoration-none text-dark"></i>2-A, No -1 Block Gate Freedom Fighter, KH No- 105, New Delhi, South Delhi, Delhi, 110068 India</p>
+
+                <div class="social-media">
+                    <h2>Social Media</h2>
+                    <a href="https://www.facebook.com/profile.php?id=61574813890604" class="fa-brands fa-facebook me-2 mb-0 pb-0 text-decoration-none text-dark"></a>
+                    <a href="https://www.instagram.com/lusabuy/" class="fa-brands fa-instagram me-2 text-decoration-none text-dark"></a>
+                    <a href="https://www.linkedin.com/company/lusabuy" class="fa-brands fa-linkedin text-decoration-none text-dark"></a>
+                </div>
+
+                <!-- Lusabuy Unique Selling Points -->
+                <div class="lusabuy-usp">
+                    <h2>Why Partner With Lusabuy?</h2>
+                    <ul>
+                        <li><i class="fas fa-leaf"></i> Ethical & Sustainable: We're committed to redefining ethical fashion.</li>
+                        <li><i class="fas fa-handshake"></i> Trusted Manufacturer: Premium cotton & linen manufacturer in India.</li>
+                        <li><i class="fas fa-globe"></i> Global Sourcing: Your trusted partner for boho & resort wear brands.</li>
+                        <li><i class="fas fa-tags"></i> Affordable Style: On-trend, eco-friendly fashion at accessible prices.</li>
+                        <li><i class="fas fa-tools"></i> Customization: Tailored solutions to fit your brand’s needs.</li>
+                        <li><i class="fas fa-industry"></i> Advanced Facilities: State-of-the-art machinery and equipment.</li>
+                    </ul>
+                </div>
+
+                <!--Optional:  Add a map using Google Maps API here -->
+            </div>
+        </div>
+
+        <div class="col2">
+            <div class="contact-form">
+                <h2>Got Any Questions?</h2>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="d0810cd5-1525-4f61-9c29-44e758c65778">
+                    <div class="form-group">
+                        <label>Name</label>
+                        {{ contactUsForm.name(class="form-control", id="name", placeholder="Name") }}
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        {{ contactUsForm.phNumber(class="form-control", id="phone", placeholder="Please mention country code eg: +91") }}
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        {{ contactUsForm.email(class="form-control", id="email", placeholder="example@xyz.com") }}
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        {{ contactUsForm.subject(class="form-control", id="subject") }}
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        {{ contactUsForm.message(class="form-control", id="message", rows="5") }}
+                    </div>
+                    {{ contactUsForm.submit(class="btn btn-secondary") }}
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+        /* General Styles */
+        body {
+            line-height: 1.6;
+        }
+        /* Contact Info Section */
+        .contact-info {
+            padding: .5rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+            color: #007bff;
+        }
+
+        .social-media a {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #495057;
+        }
+
+        .social-media a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* "Need Help?" Button Styling */
+        .need-help-btn {
+            position: absolute; /* Position it absolutely */
+            bottom: 10px; /* Adjust the distance from the bottom */
+            right: 10px; /* Adjust the distance from the right */
+            background-color: white;
+            border-color: #6c757d;
+            color: #6c757d;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .need-help-btn:hover {
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contact-info h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .social-media a {
+                font-size: 1.3rem;
+            }
+
+            .contact-form h2 {
+                font-size: 1.5rem;
+            }
+
+        }
+        /* Optional:  Add animations or transitions for a more dynamic feel */
+        .contact-info {
+        transition: transform 0.3s ease-in-out;
+        }
+        .contact-info:hover {
+            transform: scale(1.03); /* Slight scale up on hover */
+        }
+
+        .btn-primary {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+        .need-help-btn {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .need-help-btn:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+    </style>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+{% endblock content %}

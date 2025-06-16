@@ -1,0 +1,151 @@
+{% extends "universalLayout.html" %}
+{% block content %}
+    <div class="m-5 blogPage d-flex justify-content-between">
+        <div class="col1">
+            <div class="blog-content">
+                <h1>Welcome to the Lusabuy Blog: Your Bohemian Fashion Fix!</h1>
+                <p>
+                    Hey there, Boho babe! You've landed in the right place. Lusabuy is more than just a brand; we're a community of free spirits, ethical fashion enthusiasts, and lovers of all things Indian-inspired.
+                </p>
+                <p>
+                    Here, you'll find a curated collection of articles, tips, and inspiration to fuel your bohemian soul. From styling guides and eco-friendly fashion tips to behind-the-scenes glimpses of our manufacturing process in India, we're here to share our passion for sustainable and stylish living.
+                </p>
+
+                <h2>What You'll Find Here:</h2>
+                <ul>
+                    <li><b>Trend Spotting:</b>  Stay ahead of the curve with our insights into the latest bohemian fashion trends.</li>
+                    <li><b>Ethical Fashion Focus:</b> Learn about the importance of sustainable practices and the artisans behind your favorite Lusabuy pieces.</li>
+                    <li><b>Styling Tips & Tricks:</b>  Discover how to create effortlessly chic bohemian looks for any occasion.</li>
+                    <li><b>Behind the Scenes:</b>  Get a peek into our workshops in India and see how we bring your favorite designs to life.</li>
+                    <li><b>Inspiration & Travel:</b>  Explore the vibrant culture of India and the beauty that inspires our collections.</li>
+                </ul>
+
+                <p>
+                    We're committed to redefining ethical fashion and providing you with premium cotton and linen pieces that are both stylish and sustainable.  Consider us your global sourcing partner for your resort wear dream brand.
+                </p>
+                <p>
+                    So, grab a cup of chai, settle in, and explore the Lusabuy blog. We hope you find inspiration, information, and a whole lot of bohemian love!
+                </p>
+
+                <h3>Featured Posts:</h3>
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">Behind the Seams:  Our Sustainable Manufacturing Process</a></li>
+                </ul>
+
+                <h3>Stay Connected!</h3>
+                <p>Subscribe to our newsletter for exclusive updates, promotions, and more bohemian goodness delivered straight to your inbox!</p>
+                <form>
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <p>Want to get involved?  Leave comments and share your style and let us know what you want to learn more about and remember to follow us on socials</p>
+            </div>
+        </div>
+        <div class="col2" loading="lazy">
+            <!-- Facebook Feed -->
+            <div id="facebook-feed-container">
+                <h2>Follow Us on Facebook</h2>
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v22.0&appId=1108164017698213"></script>
+                <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=61574813890604" data-tabs="timeline" data-width="340" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+                    <blockquote cite="https://www.facebook.com/profile.php?id=61574813890604" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/profile.php?id=61574813890604">Lusabuy</a>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!--Add Instagram Feed Here-->
+<!--            <h2>Follow us on Instagram</h2>-->
+<!--            <p>For a daily dose of bohemian style, inspiration and eco-friendly content</p>-->
+            <!--You need to use third party plugins like Elfsight or other instagram integrations-->
+            <!--For more information on how to embed instagram visit (https://www.elfsight.com/instagram-feed-instashow/html/)-->
+            <!--Here is a space to implement the code-->
+        </div>
+    </div>
+
+    <style>
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-content h1 {
+            color: #5c3d2e;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .blog-content h2 {
+            color: #795548;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .blog-content p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .blog-content ul {
+            list-style-type: disc;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        .blog-content li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+        .blog-content a {
+            color: #9c6d51;
+            text-decoration: none;
+        }
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-content form {
+            margin-top: 20px;
+        }
+
+        .blog-content input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        .blog-content button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #9c6d51;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .blog-content button[type="submit"]:hover {
+            background-color: #5c3d2e;
+        }
+
+        #fb-root {
+            margin-bottom: 20px;
+        }
+
+        /* Floating Facebook Feed */
+        #facebook-feed-container {
+            position: sticky; /* Use sticky positioning */
+            top: 100px;      /* Stick to the top, but with some offset */
+            margin-bottom: 20px;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            #facebook-feed-container {
+                position: static; /* Disable sticky on smaller screens */
+            }
+        }
+    </style>
+
+{% endblock content %}

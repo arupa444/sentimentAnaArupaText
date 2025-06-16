@@ -1,0 +1,439 @@
+{% extends "universalLayout.html" %}
+{% block content %}
+
+    <div id="contentContainer" class="" style="z-index: -2;">
+        <div class="position-relative">
+            <video autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="lusa-video" style="width: 100%; height: 100vh; object-fit: cover;">
+                <source src="{{ url_for('static', filename='vid/lusabuyHome.mp4') }}" loading="lazy" class="p-0 m-0" type="video/mp4">
+            </video>
+            <div class="position-absolute d-flex flex-column align-items-center" style="width: 100%; height:100%; top: 70%">
+                <h1 class="firstHomeVid fw-normal">Beyond The Runway</h1>
+                <a href="#" class="btn btn-outline-dark text-decoration-none shadow-lg">Our Story</a>
+            </div>
+        </div>
+        <div class="d-flex" style=" object-position: top left;">
+            <div class="position-relative block2">
+                <video autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="w-100 lusa-video">
+                    <source src="{{ url_for('static', filename='vid/lusabuyServices.mp4') }}" loading="lazy" type="video/mp4">
+                </video>
+                <div class="position-absolute upar1" style="width: 100%; height:100%;">
+                    <div class="remainingHomeVid1 d-flex flex-column align-items-center">
+                        <h1 class="">Services</h1>
+                        <a href="#" class="btn btn-outline-light text-decoration-none" style="font-family: 'Kalesi';">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative block3">
+                <video autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="w-100 lusa-video">
+                    <source src="{{ url_for('static', filename='vid/lusabuyPort.mp4') }}" loading="lazy" type="video/mp4">
+                </video>
+                <div class="position-absolute upar1" style="width: 100%; height:100%;">
+                    <div class="remainingHomeVid1 d-flex flex-column align-items-center">
+                        <h1 class="">Collection</h1>
+                        <a href="#" class="btn btn-outline-light  text-decoration-none" style="font-family: 'Kalesi';">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative block">
+            <video autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="lusa-video">
+                <source src="{{ url_for('static', filename='vid/lusabuySustain.mp4') }}" loading="lazy" type="video/mp4">
+            </video>
+            <div class="position-absolute upar2" style="width: 100%; height:100%;">
+                <div class="remainingHomeVid2 d-flex justify-content-evenly align-items-center blockText1">
+                    <div class="w-50">
+                        <h1 class="d-flex justify-content-center">Sustainability</h1>
+                    </div>
+                    <div class="w-50 d-flex justify-content-center">
+                        <p class="d-flex justify-content-center w-50">At Lusabuy, sustainability drives everything we do, from ethical sourcing to eco-friendly production. With SEDEX and Higg Index-certified factories, we ensure responsible and transparent practices. Join us in building a fashion supply chain that’s ethical, high-quality, and sustainable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parent m-2">
+            <div class="div1 bg-dark w-100 h-100 d-flex align-items-center justify-content-center" style="color:white;">
+                <p class="p-0 m-0">Empowering Women Through Style & Sustainability</p>
+            </div>
+            <div class="div2 slide-container">
+                <div class="slide-element">
+                    <img src="{{ url_for('static', filename='img/catalougePic/Screenshot 2025-05-25 at 9.08.37 PM.png') }}" loading="lazy" style="">
+                </div>
+            </div>
+            <div class="div3 bg-dark">3</div>
+            <div class="div4 bg-dark">4</div>
+            <div class="div5 bg-dark w-100 h-100 d-flex align-items-center justify-content-center" style="color:white;">
+                <p class="text-center">Handmade in India<br>Ships Worldwide<br>From Workshop to Wardrobe</p>
+            </div>
+            <div class="div6 bg-dark align-items-center d-flex">
+                <div class="slide6r-container6">
+                    <div class="slide6r-wrapper6">
+                        <div class="slide6">Item 1</div>
+                        <div class="slide6">Item 2</div>
+                        <div class="slide6">Item 3</div>
+                        <div class="slide6">Item 4</div>
+                        <div class="slide6">Item 5</div>
+                        <div class="slide6">Item 6</div>
+                        <div class="slide6">Item 7</div>
+                        <div class="slide6">Item 8</div>
+                        <div class="slide6">Item 9</div>
+                        <div class="slide6">Item 10</div>
+                    </div>
+                    <!-- Optional: Manual Navigation Arrows -->
+                    <!-- <button class="slide6r-arrow left"><</button>;
+                    <button class="slide6r-arrow right">></button> -->
+                </div>
+            </div>
+            <div class="div7 bg-dark">7</div>
+            <div class="div9 bg-dark w-100 h-100 d-flex align-items-center justify-content-center" style="color:white;">
+                <p class="p-0 m-0 overflow-scroll">Founder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand OriginFounder's Story or Brand Origin</p>
+            </div>
+            <div class="div10 bg-dark d-flex justify-content-center align-items-center">
+                <div class="slider-containerFor4">
+                  <div class="slider">
+                      {% for i in range(15) %}
+                        {% for imgElement in certification0 %}
+                            <div class="slide">
+                                <img src="{{ imgElement.img }}" loading="lazy" class="p-2">
+                            </div>
+                        {% endfor %}
+                      {% endfor %}
+                  </div>
+                </div>
+            </div>
+            <div class="div11 bg-dark d-flex justify-content-center align-items-center">
+                <div class="slider-containerFor4">
+                  <div class="slider">
+                      {% for i in range(15) %}
+                        {% for imgElement in certification1 %}
+                            <div class="slide">
+                                <img src="{{ imgElement.img }}" loading="lazy" class="p-2">
+                            </div>
+                        {% endfor %}
+                      {% endfor %}
+                  </div>
+                </div>
+            </div>
+            <div class="div12 bg-dark d-flex justify-content-center align-items-center">
+                <div class="slider-containerFor4">
+                  <div class="slider">
+                      {% for i in range(15) %}
+                        {% for imgElement in certification2 %}
+                            <div class="slide">
+                                <img src="{{ imgElement.img }}" loading="lazy" class="p-2">
+                            </div>
+                        {% endfor %}
+                      {% endfor %}
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative block">
+            <video id="myVideo" autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="lusa-video">
+                <source src="{{ url_for('static', filename='vid/lusabuyMaterial.mp4') }}" loading="lazy" type="video/mp4">
+            </video>
+            <div class="position-absolute upar3" style="width: 100%; height:100%;">
+                <div class="remainingHomeVid2 d-flex flex-column align-items-center blockText1">
+                    <h1 class="materialLusa">Material</h1>
+                    <p>We source premium, responsibly made fabrics like 100% cotton and pure linen that meet high sustainability standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="d-flex justify-content-between align-items-center mt-3 row ms-0 me-0 ps-0 pe-0">
+        <div class="slider-container col-md-3">
+          <div class="slider">
+              {% for i in range(15) %}
+                {% for imgElement in certification %}
+                    <div class="slide">
+                        <img src="{{ imgElement.img }}" loading="lazy">
+                        <p>{{ imgElement.description | safe }}</p>
+                    </div>
+                {% endfor %}
+              {% endfor %}
+          </div>
+        </div>
+        <div class=" col-md-6 ">
+            <div class="marquee-container overflow-hidden bg-light border-start border-end">
+              <div class="marquee-content d-flex align-items-center">
+                  {% for i in range(15) %}
+                      {% for imgElement in brands %}
+                        <img src="{{ imgElement.img }}" loading="lazy" class="marquee-item px-4 py-2 rounded-pill mx-2" style="width : 22vh;">
+                      {% endfor %}
+                  {% endfor %}
+              </div>
+            </div>
+        </div>
+        <div class="slider-container col-md-3">
+          <div class="slider">
+              {% for i in range(15) %}
+                {% for imgElement in standard %}
+                    <div class="slide">
+                        <img src="{{ imgElement.img }}" loading="lazy">
+                        <p>{{ imgElement.description | safe }}</p>
+                    </div>
+                {% endfor %}
+              {% endfor %}
+          </div>
+        </div>
+    </div>
+
+
+    <div id="instafeed-container" loading="lazy"></div>
+
+
+<style>
+    .div9 p{
+        height: 36vh;
+    }
+    .slide-element{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .slide-element img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slider-containerFor4{
+      height: 12vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .slider-container {
+      height: 18vh; /* Adjust to your desired height - Experiment with this */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider {
+      height: 100%; /* Fill the container */
+      width: 100%;
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      height: 100%;
+      width: 100%; /* Ensure slides fill the container width */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centers content horizontally */
+      align-items: center;    /* Centers content vertically */
+    }
+
+    .slide img {
+      height: 10vh; /* Expand the image to the container */
+      object-fit: cover; /*  Or try 'fill' for a different effect */
+      display: block; /* Important: Removes any default spacing */
+      margin: 0;       /* Remove default margins */
+      padding: 0;      /* Remove default padding */
+    }
+
+    .navbar {
+        background-color: transparent;
+    }
+
+
+
+
+<!--    1-->
+    .btn.btn-outline-dark { /* Target the button specifically */
+      font-family: 'Kalesi'; /* Keep the font family */
+      font-size: clamp(0.8rem, 2vw, 1rem); /* Adjust as needed */
+      line-height: 1.5; /* Standard line height for buttons */
+    }
+
+    @media (max-width: 768px) {
+      .btn.btn-outline-dark {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem); /* Slightly smaller on phones */
+      }
+    }
+
+
+
+
+
+
+<!--    2-->
+    .remainingHomeVid1 h1 {
+        font-family: 'Saglity';  /* Taking from your css for the rest of remainingHomeVid1 */
+        color: rgba(255, 255, 255, .5); /* Taking from your css for the rest of remainingHomeVid1 */
+        font-size: clamp(2rem, 6vw, 3rem); /* Adjust header size responsively */
+        line-height: 1.2;
+        text-align: center; /* Optional: Center the text */
+    }
+
+    .remainingHomeVid1 .btn.btn-outline-light {
+      font-family: 'Kalesi';
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .remainingHomeVid1 h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+        }
+
+      .remainingHomeVid1 .btn.btn-outline-light {
+        font-size: clamp(0.6rem, 3vw, .8rem); /* Smaller button text on phones */
+      }
+    }
+
+
+<!--    3-->
+
+    .upar2 .remainingHomeVid2 h1 {  /* Targeting specifically within .upar2 */
+        font-family: 'Saglity';   /* Taking from your css for the rest of remainingHomeVid1 */
+        color: rgba(255, 255, 255, .5);  /* Taking from your css for the rest of remainingHomeVid1 */
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .upar2 .remainingHomeVid2 p{   /* Targeting specifically within .upar2 */
+      font-family: 'gyugyu';
+      font-size: clamp(.5rem, 1.5vw, 1rem); /* Adjust as needed */
+      line-height: 1.6; /* Important for readability */
+      text-align: center;  /* Consider centering on smaller screens */
+    }
+
+    .div5 p,
+    .div1 p,
+    .div9 p{   /* Targeting specifically within .upar2 */
+      font-family: 'gilmer-light';
+      font-size: clamp(.5rem, 1.5vw, 1rem); /* Adjust as needed */
+      line-height: 1.6; /* Important for readability */
+      text-align: center;  /* Consider centering on smaller screens */
+    }
+
+    @media (max-width: 768px) {
+      .upar2 .remainingHomeVid2 h1 {
+        font-size: clamp(1rem, 5vw, 2.5rem);
+      }
+
+      .upar2 .remainingHomeVid2 p ,
+      .div5 p,
+      .div1 p,
+      .div9 p{
+        font-size: clamp(0.2rem, 1vw, .5rem);
+      }
+    }
+
+<!--    4-->
+    .upar3 .remainingHomeVid2 h1.materialLusa {  /*Targeting specifically within upar3*/
+        font-family: 'Saglity'; /*Taking from your css*/
+        background: linear-gradient(to right,rgba(255, 255, 255, .5),rgba(255, 255, 255, .5),#000000,rgba(255, 255, 255, .5),rgba(255, 255, 255, .5)); /*Taking from your css*/
+        background-size: 200%;  /*Taking from your css*/
+        background-clip: text;  /*Taking from your css*/
+        -webkit-background-clip: text;  /*Taking from your css*/
+        -webkit-text-fill-color: transparent;  /*Taking from your css*/
+        animation: animate-gradient 5s linear infinite;  /*Taking from your css*/
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .upar3 .remainingHomeVid2 p {  /*Targeting specifically within upar3*/
+      font-family: 'gyugyu';
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .upar3 .remainingHomeVid2 h1.materialLusa {
+        font-size: clamp(1rem, 5vw, 2.5rem);
+      }
+
+      .upar3 .remainingHomeVid2 p {
+        font-size: clamp(0.4rem, 2vw, .6rem);
+      }
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 8px;
+    }
+
+    .div1 {
+        grid-column: span 2 / span 2;
+    }
+
+    .div2 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 3;
+    }
+
+    .div3 {
+        grid-column: span 2 / span 2;
+        grid-row: span 2 / span 2;
+        grid-column-start: 4;
+        grid-row-start: 3;
+    }
+
+    .div4 {
+        grid-row: span 2 / span 2;
+        grid-column-start: 4;
+        grid-row-start: 1;
+    }
+
+    .div5 {
+        grid-row: span 2 / span 2;
+        grid-column-start: 5;
+        grid-row-start: 1;
+    }
+
+    .div6 {
+        grid-column: span 4 / span 4;
+        grid-column-start: 1;
+        grid-row-start: 5;
+    }
+
+    .div7 {
+        grid-column-start: 5;
+        grid-row-start: 5;
+    }
+
+    .div9 {
+        grid-row: span 3 / span 3;
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    .div10 {
+        grid-column-start: 2;
+        grid-row-start: 2;
+    }
+
+    .div11 {
+        grid-column-start: 2;
+        grid-row-start: 3;
+    }
+
+    .div12 {
+        grid-column-start: 2;
+        grid-row-start: 4;
+    }
+
+
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+{% endblock content %}

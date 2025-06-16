@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='universalLayout.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Lusabuy | {{ title }}</title>
+
+  {% block head %}
+  {% endblock head %}
+
+<style>
+
+</style>
+</head>
+
+<body>
+  <nav class="sticky-top navbar navbar-expand-lg pb-0 pt-0 ms-0 me-0">
+    <a href="{{ url_for('lusaPrint.home') }}" class="inviBefore navbar-brand companyName m-0 pb-0 pt-0">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Company Logo" class="logo pb-0 mb-0 pt-0 mt-0" />
+    </a>
+    <button class="navbar-toggler pe-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mt-0 pt-0" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.home') }}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-uppercase pt-0" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            About
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item" href="#">Our Story</a></li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Ethical Commitment</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Fair Labor Practices</a></li>
+                <li><a class="dropdown-item" href="#">Sustainable Materials</a></li>
+                <li><a class="dropdown-item" href="#">Transparency & Traceability</a></li>
+              </ul>
+            </li>
+
+            <li><a class="dropdown-item" href="#">Manufacturing Process</a></li>
+            <li><a class="dropdown-item" href="#">Masthead</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.home') }}">Collection</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-uppercase pt-0" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Manufacturing Solutions</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Cut & Sew</a></li>
+                <li><a class="dropdown-item" href="#">Private Label</a></li>
+                <li><a class="dropdown-item" href="#">Custom Design</a></li>
+                <li><a class="dropdown-item" href="#">Sampling & Prototyping</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#">Global Sourcing</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Fabric Sourcing</a></li>
+                <li><a class="dropdown-item" href="#">Trim & Accessory Sourcing</a></li>
+                <li><a class="dropdown-item" href="#">Vendor Management</a></li>
+              </ul>
+            </li>
+            <li><a class="dropdown-item" href="#">Quality Control</a></li>
+            <li><a class="dropdown-item" href="#">Logistics & Shipping</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+
+      <a href="{{ url_for('lusaPrint.home') }}" class="inviAfter m-0 navbar-brand companyName ps-5 pe-5 justALinearMoment">
+        <img src="{{ url_for('static', filename='img/logo1.png') }}" style="height: clamp(5vh, 8vw, 12vh)" alt="Company Logo" class="logo" />
+      </a>
+
+
+
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.home') }}">Material</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.home') }}">Sustainability</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.blog') }}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-uppercase pt-0" aria-current="page" href="{{ url_for('lusaPrint.contactUs') }}">Contact</a>
+        </li>
+        <li class="nav-item lastNavEle">
+          <div class="d-flex sticky-top searchStick1 justify-content-center pt-2 pb-2" class="">
+            <!-- From Uiverse.io by vinodjangid07 -->
+                <a class="text-decoration-none text-dark me-2"  data-bs-toggle="modal" data-bs-target="#searchModal">
+                  <button class="searchButton text-uppercase">
+                    <svg class="svgIcon" viewBox="0 0 24 24" height="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    Explore
+                  </button>
+                </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="d-flex sticky-top searchStick justify-content-center pt-2 pb-2" class="" style="z-index: -2;">
+      <!-- From Uiverse.io by vinodjangid07 -->
+          <a class="text-decoration-none text-dark me-2"  data-bs-toggle="modal" data-bs-target="#searchModal">
+            <button class="searchButton text-uppercase">
+              <svg class="svgIcon" viewBox="0 0 24 24" height="1em" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              Explore
+            </button>
+          </a>
+    </div>
+  </nav>
+
+
+  <div class="">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+      <div id="pink-overlay">
+        <span class="close-button" onclick="hideOverlay()">×</span>
+      </div>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content search-popup">
+          <div class="modal-body">
+            <input type="text" class="form-control" id="search-input" placeholder="Search...">
+            <div id="search-results" class="search-results"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+  </div>
+
+  <footer class="bg-light pt-3 mb-3 border-top someLessPaddingMob">
+    <div class="addGridInFooter someAlignmentRequire align-items-center">
+      <div class="d-flex justify-content-start align-items-center">
+        <div class="d-flex flex-column align-items-stretch someAlignmentRequireTopPart">
+          <button type="button" class="subForMob btn btn-outline-dark top-nav-sm p-1 mt-2 lh-sm mb-2" data-bs-toggle="modal"
+                  data-bs-target="#subscribeModal">
+            Subscribe
+          </button>
+          <div class="d-flex align-items-center social-links">
+            <a href="https://www.facebook.com/profile.php?id=61574813890604" class="fa-brands fa-facebook me-2 mb-0 pb-0 text-decoration-none text-dark"></a>
+            <a href="https://www.instagram.com/lusabuy/" class="fa-brands fa-instagram me-2 text-decoration-none text-dark"></a>
+            <a href="https://www.linkedin.com/company/lusabuy" class="fa-brands fa-linkedin text-decoration-none text-dark"></a>
+          </div>
+          <button type="button" class="subForMob btn btn-outline-dark top-nav-sm p-1 mt-2 lh-sm">
+            Contact Us
+          </button>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center lh-sm  border-end border-start border-dark rounded border-4">
+          <a href="" class="allMsRemove text-decoration-none text-dark lh-sm">Sustainability</a>
+          <a href="" class="text-decoration-none text-dark lh-sm">People</a>
+          <a href="" class="text-decoration-none text-dark lh-sm">Blog</a>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <div class="d-flex flex-column align-items-center someAlignmentRequireTopPart">
+          <a href=""  class=" allMsRemove text-decoration-none text-dark lh-sm border-bottom" style="width : 70%;">2-A, No -1 Block Gate Freedom Fighter, KH No- 105, New Delhi, South Delhi, Delhi, 110068 India</a>
+          <a href="mailto:info@lusabuy.com" class="allMsRemove text-decoration-none text-dark lh-sm">info@lusabuy.com</a>
+          <a href="tel:+919861002612" class="text-decoration-none text-dark lh-sm">+91 9861002612</a>
+          <a href=“tel:+919337690179” class="text-decoration-none text-dark lh-sm">+91 9337690179</a>
+        </div>
+      </div>
+    </div>
+    <p class="LusaCopyRight mb-0 d-flex justify-content-center">Copyright © 2025 Lusabuy</p>
+  </footer>
+
+    <div class="modal fade shadow" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="d-flex justify-content-between ms-3 me-3 mt-3 mb-0 pb-0">
+            <p class="mb-0" id="subscribeModalLabel">Dear reader,</p>
+            <button type="button" class="btn-close" style="height:.5em; width:.5em;" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mt-0 pt-0">
+            <img src="{{ url_for('static', filename='img/subscribe1.png') }}" class="img-fluid mb-3">
+            <p>Sign up for the <i>Lusabuy</i> newsletter to receive the latest news on inventory, designers updates and about the good deals.</p>
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="d0810cd5-1525-4f61-9c29-44e758c65778">
+              <div class="mb-3">
+                <p>Unsubscribe anytime by clicking the button in the email footer.</p>
+                {{ subForm.email(class="form-control mb-3", placeholder="name@example.com") }}
+                {{ subForm.name(class="form-control mb-3", placeholder="Name") }}
+                {{ subForm.message(class="form-control", placeholder="Let us know, Why you want to join us?......") }}
+              </div>
+              <div class="d-flex justify-content-center">
+                {{ subForm.submit(class="btn btn-outline-dark") }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+  <script src="{{ url_for('static', filename='universalLayout.js') }}">
+  </script>
+</body>
+
+</html>
