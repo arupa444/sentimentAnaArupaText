@@ -1,0 +1,14 @@
+{% extends "universalLayout.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="container-lg">
+            <h1>Leave a Review</h1>
+            <form method="POST" class="form">
+                <textarea name="inp" placeholder="Enter Your Review" rows="4" cols="50"></textarea>
+                <br>
+                <input type="submit" name="submit" id="btn" class="btn btn-primary" value="Submit Review">
+            </form>
+        </div>
+    </div>
+{% endblock content %}

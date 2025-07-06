@@ -11,7 +11,7 @@
                 <a href="#" class="btn btn-outline-dark text-decoration-none shadow-lg">Our Story</a>
             </div>
         </div>
-        <div class="d-flex" style=" object-position: top left;">
+        <div class="d-flex" style="object-position: top left;">
             <div class="position-relative block2">
                 <video autoplay muted playsinline loop aria-hidden="true" role="presentation" loading="lazy" class="w-100 lusa-video">
                     <source src="{{ url_for('static', filename='vid/lusabuyServices.mp4') }}" loading="lazy" type="video/mp4">
@@ -140,6 +140,35 @@
         </div>
     </div>
 
+
+    <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+      <div class="carousel-inner">
+        {% for review in reviews %}
+          <div class="carousel-item {% if loop.first %}active{% endif %}">
+            <div class="d-flex flex-column align-items-center justify-content-center p-4">
+              <p class="fs-5 text-center fst-italic">"{{ review.review_text }}"</p>
+              <div class="text-warning">
+                {% for i in range(1, 6) %}
+                  {% if i <= review.star_rating %}
+                    <i class="fas fa-star"></i>
+                  {% else %}
+                    <i class="far fa-star"></i>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
 
 
 

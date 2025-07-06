@@ -1,18 +1,21 @@
 from flask import Blueprint, render_template, redirect, url_for, current_app, request, flash, json, g
-# flash is use as like as alert in js but in a different way like flashing a message on a specific point of a code
 from form import LusaContact, LusaSubscriber, LusaContactInContactus
-# Fatch the data from the .py file name form.py
-app_bluePrint = Blueprint("lusaPrint", __name__)
-# the "lusaPrint use when you try to invoke a function using url_for method"
 from datetime import datetime
-# import pymongo
 from bson.objectid import ObjectId
 import os
-# from bson import json_util
-
+import pymongo
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
-nltk.download(' vader_lexicon')
+
+try:
+    sid = SentimentIntensityAnalyzer()
+except LookupError:
+    nltk.download('vader_lexicon')
+    sid = SentimentIntensityAnalyzer()
+
+
+app_bluePrint = Blueprint("lusaPrint", __name__)
+
 
 certification = [
     {
@@ -119,25 +122,26 @@ brands = [
     }
 ]
 
-# @app_bluePrint.before_request
-# def before_request():
-#     g.db = current_app.config['db']
 
-# def serialize_document(doc):
-#     """Converts ObjectId to string in a MongoDB document."""
-#     if isinstance(doc, dict):
-#        for key, value in doc.items():
-#           if isinstance(value, ObjectId):
-#                doc[key] = str(value)
-#           elif isinstance(value, dict):
-#                serialize_document(value) # Recursive call for nested dicts
-#           elif isinstance(value, list):
-#              for i, item in enumerate(value):
-#                 if isinstance(item, dict):
-#                     serialize_document(item) # recursive call for nested dicts in lists
-#                 elif isinstance(item, ObjectId):
-#                    value[i]= str(item)
-#     return doc
+@app_bluePrint.before_request
+def before_request():
+    g.db = current_app.config['db']
+
+def serialize_document(doc):
+    """Converts ObjectId to string in a MongoDB document."""
+    if isinstance(doc, dict):
+       for key, value in doc.items():
+          if isinstance(value, ObjectId):
+               doc[key] = str(value)
+          elif isinstance(value, dict):
+               serialize_document(value) # Recursive call for nested dicts
+          elif isinstance(value, list):
+             for i, item in enumerate(value):
+                if isinstance(item, dict):
+                    serialize_document(item) # recursive call for nested dicts in lists
+                elif isinstance(item, ObjectId):
+                   value[i]= str(item)
+    return doc
 
 @app_bluePrint.context_processor
 def inject_globals():
@@ -149,33 +153,51 @@ def inject_globals():
 
 @app_bluePrint.route('/', methods=['GET','POST'])
 def home():
-    # g.db.aaravInsites.insert_many(aaravInsites) # to add a collection in a static manner
-    # collectionArupa = g.db["interviews"]
-    # all_collectionArupa = collectionArupa.find()
-    # folder_path = 'static/img/Compliance' # Replace with the actual path
-    # certification = os.listdir(folder_path)
-    # folder_path = 'static/img/FABRICS' # Replace with the actual path
-    # standard = os.listdir(folder_path)
+    reviews = g.db.reviews.find()  # Fetch all reviews from lusabuyBD database
+    reviews_list = list(reviews) # Convert cursor to list
     certification0 = certification + standard + brands
     certification1 = certification[1:] + standard + brands + certification[:1]
     certification2 = certification[2:] + standard + brands + certification[:2]
-    return render_template('index.html', title='Home', certification = certification, certification0 = certification0, certification1 = certification1, certification2 = certification2, standard = standard, brands = brands)
+    return render_template('index.html', title='Home', certification = certification, certification0 = certification0, certification1 = certification1, certification2 = certification2, standard = standard, brands = brands, reviews=reviews_list)
 
 @app_bluePrint.route('/blog')
 def blog():
     return render_template('blog.html', title='Blog')
 
+
 @app_bluePrint.route('/review', methods=["GET", "POST"])
 def review():
     if request.method == "POST":
         inp = request.form.get("inp")
-        sid = SentimentIntensityAnalyzer()
-        score = sid. polarity_scores(inp)
-        if score["neg"] != 0:
-            return render_template('home.html', message="Negative😧😧")
+
+        # Sentiment Analysis
+        scores = sid.polarity_scores(inp)
+        compound_score = scores['compound']
+
+        # Determine Star Rating based on Compound Score
+        if compound_score >= 0.8:
+            star_rating = 5
+        elif compound_score >= 0.6:
+            star_rating = 4
+        elif compound_score >= 0.2:
+            star_rating = 3
+        elif compound_score > -0.2:
+            star_rating = 2
         else:
-            return render_template('home.html', message="Positive🥰🥰")
-    return render_template('.html', title='Blog')
+            star_rating = 1
+
+        # Save to MongoDB - Save to lusabuyBD database
+        g.db.reviews.insert_one({
+            "review_text": inp,
+            "star_rating": star_rating,
+            "compound_score": compound_score,
+            "timestamp": datetime.utcnow()
+        })
+
+        flash('Thank you for your review!', 'success')
+        return redirect(url_for('lusaPrint.home'))
+
+    return render_template('review.html', title='review')
 
 @app_bluePrint.route('/contactUs')
 def contactUs():
