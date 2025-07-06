@@ -427,7 +427,7 @@ var userFeed = new Instafeed({
     get: 'user',
     target: "instafeed-container",
     resolution: 'low_resolution',
-    accessToken: 'IGAARe6tZAbYZCZABZAE9ldV9hM21reXN6TVU4bUdZAZAGtCMk02VmNRNmRwblBTSHRMZADFXdUxjUkFHWmRxUnNMeU5ETV80eVRTcTBzRWZATaGdTeXllMm5NR0J1bHRYSlRULTZAJVDNzOXBpd1llc0k5dEhIdkhJaHdaVXhTeHdDQlMyWQZDZD',
+    accessToken: '',
     limit: noOfInsaPics,
     template: '<div class="instafeed-item"><a href="{{link}}" target="_blank"><img src="{{image}}" /></a></div>',
     after: function() {
